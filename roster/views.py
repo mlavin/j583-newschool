@@ -21,24 +21,8 @@ def student(request, pk):
 
 def courseList(request):
     course_list = Course.objects.all()
-    paginator = Paginator(course_list, 25)
-    page = request.GET.get('page')
-    try:
-        courses = paginator.page(page)
-    except PageNotAnInteger:
-        courses = paginator.page(1)
-    except EmptyPage:
-        courses = paginator.page(paginator.num_pages)
-    return render(request, 'roster/course_list.html', {'courses': courses})
+    return render(request, 'roster/course_list.html', {'courses': course_list})
 
 def studentList(request):
     student_list = Student.objects.all()
-    paginator = Paginator(student_list, 25)
-    page = request.GET.get('page')
-    try:
-        students = paginator.page(page)
-    except PageNotAnInteger:
-        students = paginator.page(1)
-    except EmptyPage:
-        students = paginator.page(paginator.num_pages)
-    return render(request, 'roster/student_list.html', {'students': students})
+    return render(request, 'roster/student_list.html', {'students': student_list})
