@@ -1,0 +1,9 @@
+{# in roster/templates/roster/course.html #}
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2> {{ course.callnumber }} | {{ course.name }}</h2>
+    <h4> {{ course.instructor }}</h4>
+    <p> {{ course.description }}</p>
+{% endblock content %}
